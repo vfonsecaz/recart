@@ -1,0 +1,10 @@
+
+Para importar o ficheiro dump-recart-<timestamp>.bakcup não se pode utilizar as ferramentas restore do pgadmin4 p.e. ou pg_restore visto o backup ser um dump em "plain text".
+Provavelmente irá aparecer uma mensagem de erro semelhante a esta
+"pg_restore: error: input file appears to be a text format dump. Please use psql."
+
+Para importar deve-se criar primeiro a base de dados de destino e depois correr o comando na mesma diretoria onde se tem o ficheiro do dump:
+
+  psql -d <nome_da_bd> -v ON_ERROR_STOP=1  f dump-recart-201910041635.backup
+
+assumindo que o ficheiro de dump é "dump-recart-201910041635.backup"
