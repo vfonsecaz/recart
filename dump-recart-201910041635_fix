@@ -1,0 +1,6 @@
+
+A importação do ficheiro pressupoe que na base de destino estejam instaladas e ativas as extensões "postgis" e "uuid-ossp".
+Assim sugiro que o script de dump sejam adicionadas estas duas linhas após a linha "CREATE SCHEMA public":
+
+create extension if not exists "uuid-ossp" with schema public;
+CREATE EXTENSION if not exists "postgis"  with schema public;
